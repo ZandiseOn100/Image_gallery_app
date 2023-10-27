@@ -1,0 +1,126 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a background color and center the content */
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+}
+/* Style the header */
+.header {
+    text-align: center;
+    font-family: cursive;
+    width: 200px;
+}
+.image img {
+    margin-top: 20px;
+    width: 200px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(91, 31, 31, 0.2);
+    margin-right: 50px;
+}
+
+/* Style the form container */
+.upload-form {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Style the label for the file input */
+.upload-form label[for="actualPic"] {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Style form-group elements */
+.form-group {
+    display: flex;
+    flex-direction: column; /* Place labels and inputs vertically */
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the textarea */
+.upload-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #826e6e;
+    color: #fff;
+}
+
+.form-group textarea {
+    height: 100px; /* Adjust the height as needed */
+}
+.btn-group-gallery button{
+    background-color: #050f1a;
+    cursor: pointer;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+}
+.form-group button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the footer */
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+    .upload-form {
+        width: 90%;
+    }
+}

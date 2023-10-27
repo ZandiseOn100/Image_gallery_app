@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Image Gallery</title>
+    <!-- Add your CSS stylesheets or link to a CSS file here -->
+</head>
+<body>
+   
+    <!-- Display all the images from the database -->
+    <div class="image-list">
+        <h1 class="header">Image Gallery</h1>
+        <% imageList.forEach(function(image) { %>
+            <div class="image">
+                <img src="<%= image.imageUrl %>" alt="<%= image.imageName %>" />
+                <p><%= image.imageDescription %></p>
+                <div class="btn-group-gallery">
+                    <button onclick="deleteItem('<%= image.imageId %>')">Delete</button>
+                </div>
+            </div>
+        <% }); %>        
+    </div>
+
+    <!-- Add a form to upload new images -->
+    <div class="upload-form">
+        <h2>Upload an Image</h2>
+        <form action="/" method="POST" enctype="multipart/form-data" class="upload-form">
+            <div class="form-group">
+                <input type="file" name="actualPic" accept=".jpg, .jpeg, .png" required>
+            </div>
+            <div class="form-group">
+                <label for="picName">Image Name:</label>
+                <input type="text" name="picName" required>
+            </div> 
+            <div class="form-group">
+                <label for="picDescription">Image Description:</label>
+                <textarea name="picDescription" required></textarea>
+            </div> 
+            <div class="form-group">
+                <button type="submit">Upload</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>Awesome Gallery App &copy;</p>
+    </footer>  
+     <!--Item delition  -->
+     <script>
+        function deleteItem(actualPicId){
+            fetch("/delete-actualPic/" + actualPicId, {
+                method: "DELETE"
+            }).then(response => {
+                if(!response.ok){
+                    throw new Error("Network response was not ok");
+                }
+                return response.text();
+            }).then(data =>{
+                if(data === "Item deleted successfully"){
+                    location.reload();
+                }else{
+                    console.error("Error deleting item", data);
+                }
+            }).catch(error =>{
+                console.error("Error deleting item", error);
+            });
+        }
+        // Update function
+
+     </script>
+</body>
+</html>
