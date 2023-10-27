@@ -14,8 +14,8 @@ app.set("views", __dirname);
 // Database connection
 const db = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "z@R_useRn@m3",
+    user: "my user",
+    password: "my password",
     database: "wesome_gallery_app", // Corrected database name
 });
 
